@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACEOFF | Entertainment & Introduction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Basic Reset and Variables for Entertainment Theme */
+        :root {
+            --primary-color: #0504ff; /* Energetic Blue */
+            --secondary-color: #ff0302; /* Dark Blue-Gray */
+            --background-color: #1a1a2e; /* Very Dark Blue for depth */
+            --text-color: #c5cbcf; /* Light Gray for main text contrast */
+            --accent-color: #ff0302; /* Blue for highlights and links */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* Reset and Global Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* Reusable Container and Sections */
+        .content-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+   }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: 3.5em; }
+        h2 { font-size: 2.5em; color: var(--primary-color); }
+        h3 { font-size: 1.8em; color: var(--accent-color); margin-bottom: 15px;}
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ff0302;
+            font-family: var(--font-heading);
+
+ letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color:#0504ff;
+            padding: 10px 20px;
+            display: block;
+            transition: color 0.3s, background-color 0.3s;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: #ff0302;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+img {
+  border-radius: 50%;
+}
+
+        /* --- Hero Section with Video --- */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        #background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+ min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            background-size: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5em;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(247, 16, 54, 0.8), 0 0 5px rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            text-transform: none;
+            margin-bottom: 40px;
+        }
+
+        /* CTA Button Style */
+        .cta-button {
+            display: inline-block;
+            background-color: #ff0302;
+            color: #0504ff;
+            padding: 12px 30px;
+
+  text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.2s;
+            border: 2px solid var(--primary-color);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+        }
+
+
+        /* --- Skills Section Grid --- */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .skill-item {
+            background-color: #25253a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .skill-item p {
+            color: var(--text-color);
+            font-size: 1em;
+        }
+
+        /* --- Portfolio Grid --- */
+
+  .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            background-color: #25253a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.3s;
+            border: 1px solid #3d3d5f;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.03);
+            border-color: var(--primary-color);
+        }
+
+        .portfolio-item p {
+            font-size: 1em;
+            color: #b0b8bf;
+        }
+
+        /* --- Contact Section --- */
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .contact-info p a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Footer --- */
+
+   footer {
+            background-color: #11111f;
+            color: var(--text-color);
+            text-align: center;
+            padding: 20px 5%;
+            font-size: 0.9em;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: var(--text-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            h2 { font-size: 2em; }
+            nav { flex-direction: column; }
+            nav ul { margin-top: 10px; }
+            nav ul li a { padding: 8px 15px; }
+            .content-section { padding: 60px 5%; }
+        }
+
+        @media (max-width: 480px) {
+            .logo { margin-bottom: 10px; }
+            .hero-content h1 { font-size: 3.5em; }
+            .hero-content h2 { font-size: 1.4em; }
+        }
+    </style>
+    </head>
+<body>
+
+
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-running"></i> FACE OFF <i class="fas fa-trophy"></i></div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Team</a></li>
+                <li><a href="#portfolio">Video</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#stream-outline">Outline</a></li>
+
+            </ul>
+  </nav>
+    </header>
+
+ <section id="hero" class="hero-section">
+        <video autoplay muted loop id="background-video">
+            <source src="your-video.mp4" type="video/mp4">
+            <source src="your-video.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div> 
+        <div class="hero-content">
+            <h1><i class="fas fa-running"></i> FACE OFF </i><i class="fas fa-trophy"></i></h1>
+            <h2> Blue Team vs. Red Team: Let the Games Begin!<h2>
+            <a href="#portfolio" class="cta-button">Watch the Latest Trailer</a>
+        </div>
+ </section>
+
+
+    <section id="about" class="content-section">
+        <h2>About Us  <i class="fab fa-readme"></i></h2>
+
+        <img src="faceofflogo.png" alt="FACE OFF logo" width="300" height="300">
+
+        <p>Welcome to our world of creativity, energy, and teamwork! We are a group of passionate creators, editors, narrators, videographers, and challengers who love bringing ideas to life through our videos. Every member of our team plays an important role from designing the website to capturing every moment on camera, adding narration, and editing our footage to make it exciting and engaging.</p>
+
+<p>Our mission is to create content that entertains, inspires teamwork, and brings smiles to everyone who watches. We believe in sharing fun, laughter, and memorable moments with our audience while showing the effort and dedication behind each video.</p>
+
+<p>This is more than just videos it’s a space where our creativity and teamwork come together. We put our heart into every project, making sure that each viewer has an enjoyable experience. Thank you for visiting, and we hope you enjoy exploring our website and joining us on this exciting journey!</p>
+    </section>
+
+
+    <section id="skills" class="content-section skills-grid">
+        <h2>Meet The Team <i class="fas fa-child"></i></h2>
+        <div class="skill-item">
+            <h3>Website Designer</h3>
+            <p>Designed and built this site to showcase our challenges in the best way possible.
+— Chloe Adolfo</p>
+        </div>
+        <div class="skill-item">
+            <h3>Videographers</h3>
+            <p>Capture every moment from epic wins to funny fails.
+— Ayen Rallonza & Clyde Nobleza<p>
+        </div>
+
+<div class="skill-item">
+            <h3>Editor</h3>
+            <p>Makes our videos smooth, synced, and exciting to watch.
+— Chloe Adolfo</p>
+        </div>
+        <div class="skill-item">
+            <h3>Challengers</h3>
+            <p>The stars of the show, ready for any challenge, anytime!
+— Mark Kenn Esplana & Alshan Quiambao</p>
+        </div>
+    </section>
+
+ <section id="portfolio" class="content-section">
+        <h2>Video Gallery <i class="fas fa-camera"></i></h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Intro Video</h3>
+                <p>Just a quick introduction to set the tone and give you a feel for what’s ahead.</p>
+                <a href="INTRO.mp4" target="_blank" class="cta-button">View Intro</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Trailer</h3>
+                <p>Watch how the face-off begins! This teaser gives you a glimpse of the energy, fun, and excitement in our upcoming challenges.</p>
+                <a href="TRAILER.mp4" target="_blank" class="cta-button">View Trailer</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Full Video</h3>
+                <p>IS OUTTTT!!!</p>
+              <a href="full-video.html" target="_blank" class="cta-button">
+    Watch Full Video
+</a>
+            </div>
+        </div>
+
+  </section>
+
+    <section id="contact" class="content-section">
+        <h2>Connect With Us  <i class="far fa-address-card"></i></h2>
+        <p>We're always open to new collaborations, challenges, and conversations. Whether it's a new project idea or just a fan message, We'd love to hear from you!</p>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:your.email@example.com">face.off@email.com</a></p>
+            <p><i class="fab fa-twitter"></i> Twitter: <a href="https://twitter.com/yourhandle" target="_blank">@FACE_OFF</a></p>
+
+<p><i class="fab fa-youtube"></i> YouTube: <a href="https://youtube.com/yourchannel" target="_blank">FACE OFF</a></p>
+            <p><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/yourhandle" target="_blank">@FACE_OFF</a></p>
+        </div>
+    </section>
+
+    <section id="stream-outline" class="content-section">
+
+    <style>
+        /* Stream Outline (Scoped to #stream-outline only) */
+        #stream-outline .table-container {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        #stream-outline .outline-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #25253a;
+            color: var(--text-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        #stream-outline .outline-table th {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px;
+            text-transform: uppercase;
+            font-family: var(--font-heading);
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        #stream-outline .outline-table td {
+            padding: 15px;
+            border-bottom: 1px solid #3a3a55;
+            font-size: 1em;
+        }
+
+        #stream-outline .outline-table tr:hover {
+            background-color: #2e2e42;
+        }
+    </style>
+
+<div class="portfolio-item" style="grid-column: 1 / -1; max-width: 400px; margin: auto;">
+    <h3>Second Stream</h3>
+    <p>Watch our second stream session including discussions, viewer interaction, and challenges.</p>
+    <a></a>Watch Second Stream</a>
+       <iframe 
+    src="https://drive.google.com/file/d/1Y6yutLllYtO7jgUKPYo-iQTN2Ix5xAao/preview" 
+    width="100%" 
+    height="500" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+</iframe>
+</div>
+
+
+
+
+<!-- SECOND STREAM -->
+<section id="stream-outline-2" class="content-section">
+<h2>Second Stream Outline <i class="fas fa-stream"></i></h2>
+<p>This section shows the flow of our second stream session including activities and timing.</p>
+
+<div class="table-container">
+<table class="outline-table">
+<thead>
+<tr>
+<th>Time</th>
+<th>Topic</th>
+<th>Activity</th>
+<th>Time Allotment (mins)</th>
+<th>Screen</th>
+<th>Audio</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>4:00–4:05</td>
+<td>Introduction</td>
+<td>Explaining the purpose of the stream</td>
+<td>5</td>
+<td>Video</td>
+<td>Video Audio/Mic</td>
+</tr>
+
+<tr>
+<td>4:05–4:15</td>
+<td>Main Content Discussion</td>
+<td>Discussing</td>
+<td>10</td>
+<td>Video</td>
+<td>Video Audio/Mic</td>
+</tr>
+
+<tr>
+<td>4:15–4:20</td>
+<td>Viewer Interaction</td>
+<td>Short interaction with viewers</td>
+<td>5</td>
+<td>Video</td>
+<td>Video Audio/Mic</td>
+</tr>
+
+<tr>
+<td>4:20–4:35</td>
+<td>Trivias</td>
+<td>Challenges for viewers</td>
+<td>15</td>
+<td>Video</td>
+<td>Video Audio/Mic</td>
+</tr>
+
+<tr>
+<td>4:35–4:55</td>
+<td>Interactive Segment</td>
+<td>Audience Opinions</td>
+<td>20</td>
+<td>Video</td>
+<td>Video Audio/Mic</td>
+</tr>
+
+<tr>
+<td>4:55–5:00</td>
+<td>Closing & Promotion</td>
+<td>Summarization</td>
+<td>5</td>
+<td>Video</td>
+<td>Video Audio/Mic</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- SECOND ANALYTICS -->
+<section id="analytics-2" class="content-section">
+<h2>Second Stream Analytics <i class="fas fa-chart-line"></i></h2>
+
+<div class="skills-grid">
+
+<div class="skill-item">
+<h3>Total Viewers</h3>
+<p><strong>120 Viewers</strong></p>
+</div>
+
+<div class="skill-item">
+<h3>Average Watch Time</h3>
+<p><strong>18 Minutes</strong></p>
+</div>
+
+<div class="skill-item">
+<h3>Engagement</h3>
+<p><strong>85 Interactions</strong></p>
+</div>
+
+<div class="skill-item">
+<h3>Highlights</h3>
+<p><strong>Final Face-Off Round</strong></p>
+</div>
+
+</div>
+</section>
+
+<footer>
+    <p>&copy; 2025 FACEOFF Entertainment. We're a team.</p>
+    <p>Creating fun, exciting videos full of laughter and teamwork.</p>
+</footer>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<section id="analytics-2" class="content-section">
+    <h2 style="font-size: 2.5em;">Group 7 FACE OFF Stream Analytics <i class="fas fa-chart-line"></i></h2>
+    <p style="font-size: 1.2em;"><strong>Team Members:</strong> Adolfo, Esplana, Nobleza, Rallonza, Quiambao</p>
+
+    <h3 style="font-size: 1.8em;">Section 1: Twitch + Feedback Form</h3>
+    <div class="skills-grid" style="display:grid; grid-template-columns: 1fr; gap: 20px;">
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure1.png" alt="Figure 1" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 1</h3>
+            <p>Stream duration: 1h 9min. Max viewers: 9. Unique viewers: 17. Live views: 32.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure2.png" alt="Figure 2" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 2</h3>
+            <p>12 unique chatters and 1 new follower. Strong engagement throughout the stream.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure3.png" alt="Figure 3" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 3</h3>
+            <p>Who should win? 42.9% voted for Team Blue / Mark Kenn, 14.3% for Team Red / Alshan.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure4.png" alt="Figure 4" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 4</h3>
+            <p>100% of viewers found the stream entertaining.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure5.png" alt="Figure 5" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 5</h3>
+            <p>85.7% enjoyed engaging with contestants during the stream.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure6.png" alt="Figure 6" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 6</h3>
+            <p>100% found hosts enthusiastic and entertaining.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure7.png" alt="Figure 7" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 7</h3>
+            <p>57.1% thought contestants were honest; 14.3% thought there was cheating.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure8.png" alt="Figure 8" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 8</h3>
+            <p>Who should have won? 42.9% Chat, 28.6% Team Red, 28.6% Team Blue.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure9.png" alt="Figure 9" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 9</h3>
+            <p>Suggestions: add slides, prizes, and new trivia challenges for more engagement.</p>
+        </div>
+
+        <div class="skill-item" style="padding: 10px; font-size: 1.2em;">
+            <img src="figure10.png" alt="Figure 10" style="width:100%; height:auto; border-radius:0;">
+            <h3 style="font-size:1.5em;">Figure 10</h3>
+            <p>Overall rating: 71.4% rated 5, 14.3% rated 4, 14.3% rated 3. Very positive experience overall.</p>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
